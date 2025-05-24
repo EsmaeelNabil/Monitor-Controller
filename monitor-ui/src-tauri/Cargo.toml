@@ -1,0 +1,23 @@
+[package]
+name = "monitor-controller"
+version = "0.1.0"
+description = "Control Samsung monitors via m1ddc"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.4", features = [] }
+
+[dependencies]
+tauri = { version = "1.4", features = [ "fs-read-dir", "path-all", "fs-read-file", "process-exit", "fs-write-file", "fs-exists", "process-relaunch", "shell-all", "dialog-all", "window-all"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
